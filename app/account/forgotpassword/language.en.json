@@ -1,0 +1,6 @@
+{
+    "forgotpassword": "SEND RESET LINK",
+    "phone": "Phone number or Email",
+    "success": "We send a verification code to your phone number or email address.",
+    "title": "Forgot Password"
+}

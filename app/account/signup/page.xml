@@ -1,0 +1,20 @@
+<Page loaded="pageLoaded" xmlns="http://www.nativescript.org/tns.xsd">
+    <ActionBar title="{{ language('title') }}" />
+    <ScrollView>
+        <StackLayout>
+            <ActivityIndicator busy="{{ processing }}" />
+
+            <Label text="{{ language('phone') }}" />
+            <TextField text="{{ phone }}" returnKeyType="next" />
+
+            <Label text="{{ language('password') }}" />
+            <TextField text="{{ password }}" returnKeyType="done" secure="true" />
+
+            <Button text="{{ language('signup') }}"
+                tap="{{ buttontap_signup }}" />
+
+            <Label text="{{ language('signin') }}"
+                tap="{{ labeltap_signin }}" />
+        </StackLayout>
+    </ScrollView>
+</Page>

@@ -1,0 +1,40 @@
+{
+    "errors": [
+        {
+            "description": "Sorry, we couldn't connect to the server.\n\nPlease try again later."
+        },
+        {
+            "description": "It is out of date. You need to update.\n\nImportant security improvements and new features are available in latest version."
+        },
+        {
+            "description": ""
+        },
+        {
+            "description": ""
+        },
+        {
+            "description": ""
+        },
+        {
+            "description": ""
+        },
+        {
+            "description": ""
+        },
+        {
+            "description": ""
+        },
+        {
+            "description": ""
+        },
+        {
+            "description": ""
+        },
+        {
+            "description": "Please fill out all fields and try again."
+        },
+        {
+            "description": "This account already exists. If you've forgotten the associated password, just use the password reset feature."
+        }
+    ]
+}

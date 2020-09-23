@@ -28,3 +28,4 @@ https://docs.nativescript.org/ui/components.
         <Label text="{{ message }}" class="h2 text-center" textWrap="true"/>
     </StackLayout>
 </Page>
+

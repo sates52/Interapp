@@ -1,0 +1,34 @@
+<Page loaded="pageLoaded" xmlns="http://www.nativescript.org/tns.xsd">
+    <ActionBar title="{{ language('title') }}" />
+    <GridLayout class="header-container"
+        rows="auto,auto,auto,auto,auto,auto,auto,auto,auto" columns="auto">
+        <ActivityIndicator busy="{{ processing }}" />
+
+
+        <Label text="{{ language('reload') }}" tap="{{ labeltap_reload }}"
+            row="0" />
+
+        <Label text="{{ student('id') + ' / ' + student('name') }}" row="1" />
+        <Label text="{{ student('contact') }}" row="2" />
+        <Label text="{{ student('calling') + ' / ' + student('duration') }}"
+            row="3" />
+        <Label text="{{ teacher('name') }}" row="4" />
+        <Image src="{{teacher('picture')}}" width="50" height="50"
+            horizontalAlignment="left" row="5" />
+        <Button text="{{ language('purchase') }}"
+            tap="{{ buttontap_purchase }}"
+            visibility="{{ showDetails('purchase') }}" row="6" />
+
+
+        <Label text="{{ event('book') }}" row="7" />
+        <Image src="{{ event('url') }}" verticalAlignment="top" width="300"
+            height="1000" row="9" />
+
+
+
+
+
+
+
+    </GridLayout>
+</Page>
