@@ -1,0 +1,20 @@
+<Page loaded="pageLoaded" xmlns="http://www.nativescript.org/tns.xsd"
+    xmlns:lv="nativescript-ui-listview">
+    <ActionBar title="{{ language('title') }}" />
+
+    <!--<ActivityIndicator busy="{{ processing }}" />
+        -->
+    <GridLayout>
+        <lv:RadListView items="{{ mins }}" selectionBehavior="Press"
+            itemSelected="onItemSelected" itemDeselected="onItemDeselected">
+            <lv:RadListView.itemTemplate>
+                <GridLayout orientation="vertical"
+                    backgroundColor="{{ selected ? 'red' : 'white'}}">
+                    <Label text="{{ month }}" />
+                </GridLayout>
+            </lv:RadListView.itemTemplate>
+        </lv:RadListView>
+    </GridLayout>
+
+
+</Page>

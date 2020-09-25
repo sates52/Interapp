@@ -11,7 +11,7 @@
             <TextField text="{{ password }}" returnKeyType="done" secure="true" />
 
             <Button text="{{ language('signin') }}"
-                tap="{{ buttontap_signin }}" />
+                tap="{{ buttontap_signin }}" style="background-color: blue;"/>
 
             <Label text="{{ language('signup') }}"
                 tap="{{ labeltap_signup }}" />
@@ -19,7 +19,8 @@
                 tap="{{ labeltap_forgotpassword }}" />
 
             <Button type="guest" text="{{ language('guest') }}"
-                tap="{{ buttontap_signin }}" />
+                tap="{{ buttontap_signin }}"  style="background-color: blue;" />
+                
         </StackLayout>
     </ScrollView>
 </Page>

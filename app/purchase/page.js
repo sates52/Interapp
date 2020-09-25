@@ -1,33 +1,33 @@
 "use strict";
 
 var document = null;
-var purchase_control = 1;
+var dialogsModule = require("tns-core-modules/ui/dialogs");
+var mins;
+
+var ObservableArray = require("tns-core-modules/data/observable-array").ObservableArray;
+const listViewModule = require("tns-core-modules/ui/list-view");
 const fromobject = require("tns-core-modules/data/observable").fromObject;
 
 const appsettings = require("tns-core-modules/application-settings");
 const apputils = require("~/app-utils").utils;
-const language = require("~/dashboard/language." + apputils.language() + ".json");
+const language = require("~/purchase/language." + apputils.language() + ".json");
+
+
 
 exports.pageLoaded = function (args) {
+
+
+
     var page = args.object;
     var view = fromobject({
         processing: true,
-        student() {
-            
-            return "";
-        },
-        event() {
-            return "";
-        },
-        teacher() {
-            return "";
-        },
-        showDetails() {
-
-            return "collapsed";
-
-        },
-
+        /*
+                mins: new ObservableArray([
+                    { mey: "Apples-" },
+                    { mey: "Bananas" },
+                    { mey: "Oranges" }
+                ]),
+                */
         language() {
             return eval("language." + arguments[0]);
         },
@@ -38,43 +38,62 @@ exports.pageLoaded = function (args) {
         buttontap_purchase() {
             apputils.navigate("~/purchase/page.js");
         }
+
+
     });
+
     page.bindingContext = view;
 
     //reference
     document = view;
 
-    //load data
+
+
+
+
+
+
+
+    exports.onItemSelected = function (args) {
+        alert(args.index);
+    }
+
     setTimeout(function () {
-        var http = require("tns-core-modules/http");
+        var http = require("http");
+
         http.getJSON({
-            url: "https://api.interingilizce.com/_api/dashboard",
+            url: "https://api.interingilizce.com/_api/packages",
             method: "POST",
             headers: { "Content-Type": "application/json" },
             content: JSON.stringify({
                 token: appsettings.getString("token"),
-                timezone: apputils.timezone(),
-                uuid: apputils.uuid(),
                 apikey: apputils.apikey()
             })
         }).then((r) => {
-            
+            //alert(r.data.package[0].listprice);
             pageShowed(args, r);
         }, (e) => {
+            alert("Json hata");
             pageError(args);
         });
     }, 1000);
 
-
     function pageShowed(args, r) {
-        document.processing = false;
+        //document.processing = false;
+        alert(JSON.parse(r.data.package));
         var page = args.object;
         var view = fromobject({
             student() {
-               
                 return eval("r.student." + arguments[0]);
             },
-
+/*
+            mins: new ObservableArray([
+                { month: "Apples-", id: 2 },
+                { month: "Bananas", id: 3 },
+                { month: "Oranges", id: 4 }
+            ]),
+*/
+            // mins: new ObservableArray([r.data.package[0].month]),
             event() {
                 return eval("r.bookevent." + arguments[0]);
             },
@@ -102,8 +121,13 @@ exports.pageLoaded = function (args) {
 
     function pageError(args) {
         document.processing = false;
-
+        alert("hata");
         alert(language.errors[0].description);
     }
 
+
 }
+
+
+
+

@@ -1,34 +1,48 @@
 <Page loaded="pageLoaded" xmlns="http://www.nativescript.org/tns.xsd">
     <ActionBar title="{{ language('title') }}" />
-    <GridLayout class="header-container"
-        rows="auto,auto,auto,auto,auto,auto,auto,auto,auto" columns="auto">
+    <ScrollView>
         <ActivityIndicator busy="{{ processing }}" />
+        <GridLayout
+            rows="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto">
+
+            <Label text="{{ language('reload') }}" tap="{{ labeltap_reload }}"
+                row="1" />
+
+            <Label text="{{ student('id') + ' / ' + student('name') }}"
+                row="2" />
+            <Label text="{{ student('contact') }}" row="3" />
+            <Label
+                text="{{ student('calling') + ' / ' + student('duration') }}"
+                row="4" />
+            <Label text="{{ teacher('name') }}" row="5" />
+            <Image src="{{teacher('picture')}}" width="50" height="50"
+                horizontalAlignment="left" row="6" />
+            <Button text="{{ language('purchase') }}"
+                tap="{{ buttontap_purchase }}"
+                visibility="{{ showDetails('purchase') }}" row="7" style="background-color: blue;" />
+            <StackLayout orientation="horizontal" row="8">
+                <Label text="{{ language('listening') }}" marginRight="5" />
+                <Label text="{{ language('reading') }}" marginRight="5" />
+                <Label text="{{ language('speaking') }}" marginRight="5" />
+                <Label text="{{ language('vocabulary') }}" marginRight="5" />
+                <Label text="{{ language('grammar') }}" marginRight="5" />
+            </StackLayout>
+            <StackLayout orientation="horizontal" row="9" marginTop="5">
+                <Label text="{{ student('listening') }}" marginRight="50*" />
+                <Label text="{{ student('reading') }}" marginRight="50*" />
+                <Label text="{{ student('speaking') }}" marginRight="60*" />
+                <Label text="{{ student('vocabulary') }}" marginRight="70*" />
+                <Label text="{{ student('grammar') }}" marginRight="50*" />
+            </StackLayout>
+            <Label text="{{ event('book') }}" row="10" marginTop="20*" />
+            <Image src="{{ event('url') }}" width="300" height="300" row="11"
+                marginTop="50*" />
 
 
-        <Label text="{{ language('reload') }}" tap="{{ labeltap_reload }}"
-            row="0" />
-
-        <Label text="{{ student('id') + ' / ' + student('name') }}" row="1" />
-        <Label text="{{ student('contact') }}" row="2" />
-        <Label text="{{ student('calling') + ' / ' + student('duration') }}"
-            row="3" />
-        <Label text="{{ teacher('name') }}" row="4" />
-        <Image src="{{teacher('picture')}}" width="50" height="50"
-            horizontalAlignment="left" row="5" />
-        <Button text="{{ language('purchase') }}"
-            tap="{{ buttontap_purchase }}"
-            visibility="{{ showDetails('purchase') }}" row="6" />
-
-
-        <Label text="{{ event('book') }}" row="7" />
-        <Image src="{{ event('url') }}" verticalAlignment="top" width="300"
-            height="1000" row="9" />
 
 
 
+        </GridLayout>
 
-
-
-
-    </GridLayout>
+    </ScrollView>
 </Page>
